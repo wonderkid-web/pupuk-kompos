@@ -11,7 +11,8 @@ function waLink(name: string) {
   return `https://wa.me/${phone}?text=${text}`;
 }
 
-export default async function PupukDetailPage({ params }: { params: { slug: string } }) {
+export default async function PupukDetailPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const item = await prisma.pupuk.findUnique({ where: { slug: params.slug } });
   if (!item) return notFound();
   const price = new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR" }).format(Number(item.price));
