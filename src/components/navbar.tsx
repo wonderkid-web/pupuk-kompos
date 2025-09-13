@@ -23,6 +23,7 @@ export default async function Navbar() {
                 <Link href="/admin/dashboard" className="flex items-center gap-1.5 text-green-700 hover:underline"><LayoutDashboard className="h-4 w-4"/> Dashboard</Link>
                 <Link href="/admin/pupuk" className="flex items-center gap-1.5 text-green-700 hover:underline"><PackagePlus className="h-4 w-4"/> Kelola Pupuk</Link>
                 <Link href="/admin/orders" className="flex items-center gap-1.5 text-green-700 hover:underline"><LayoutDashboard className="h-4 w-4"/> Pesanan</Link>
+                <Link href="/admin/users" className="flex items-center gap-1.5 text-green-700 hover:underline"><LayoutDashboard className="h-4 w-4"/> Pengguna</Link>
               </>
             )}
           </nav>
