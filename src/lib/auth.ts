@@ -30,7 +30,7 @@ export const authOptions: NextAuthOptions = {
           email: user.email ?? undefined,
           image: user.image ?? undefined,
           role: user.role,
-        } as any;
+        };
       },
     }),
   ],
@@ -40,7 +40,8 @@ export const authOptions: NextAuthOptions = {
         token.id = (user as { id?: string }).id;
         token.name = user.name;
         token.email = user.email;
-        (token as any).role = (user as any).role ?? "USER";
+        // @ts-expect-error its okay
+        (token).role = (user).role ?? "USER";
       }
       return token;
     },
@@ -50,7 +51,7 @@ export const authOptions: NextAuthOptions = {
         session.user.email = token.email ?? session.user.email;
         // expose id for client/server
         (session.user as { id?: string }).id = (token as { id?: string }).id ?? token.sub;
-        (session.user as { role?: "ADMIN" | "USER" }).role = (token as any).role ?? "USER";
+        (session.user as { role?: "ADMIN" | "USER" }).role = (token).role ?? "USER";
       }
       return session;
     },

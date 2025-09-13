@@ -70,7 +70,7 @@ export async function PATCH(req: Request, props: { params: Promise<{ id: string 
     imageKey?: string | null;
   };
 
-  let data: any = {};
+  const data: any = {};
   if (typeof name === "string" && name.trim()) {
     data.name = name.trim();
     let s = slugify(data.name);

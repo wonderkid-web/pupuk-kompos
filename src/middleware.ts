@@ -10,7 +10,7 @@ export default withAuth({
       const pathname = req.nextUrl.pathname;
       // Admin-only area
       if (pathname.startsWith("/admin")) {
-        return (token as any).role === "ADMIN";
+        return (token).role === "ADMIN";
       }
       // Logged-in users can access /user
       if (pathname.startsWith("/user")) return true;

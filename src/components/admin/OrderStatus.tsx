@@ -27,6 +27,7 @@ export function OrderStatusSelect({ id, status }: { id: string; status: "PENDING
       toast.success("Status pesanan diperbarui");
       // Refresh server component data so badge and totals update
       router.refresh();
+
     } catch (err: any) {
       toast.error(err?.message || "Gagal memperbarui status");
     }
